@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  application:
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    container_name: application
+    image: frontend:latest
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=develop
+    command: npm start
+  storybook:
+    container_name: storybook
+    image: frontend:latest
+    ports:
+      - 6006:6006
+    command: npm run storybook
