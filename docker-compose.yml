@@ -4,16 +4,19 @@ services:
     # build: 
     #   context: .
     #   dockerfile: Dockerfile
+    image: application:latest
     container_name: application
-    image: frontend:latest
     ports:
       - 3000:3000
     environment:
       - NODE_ENV=develop
     command: npm start
   storybook:
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: application:latest
     container_name: storybook
-    image: frontend:latest
     ports:
       - 6006:6006
     command: npm run storybook
