@@ -4,9 +4,11 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      target: development
+    image: kslplus/application
     container_name: application
     volumes:
-      - ./:/app
+      - ./:/usr/src/app
     ports:
       - 3000:3000
     environment:
@@ -16,9 +18,11 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      target: development
+    image: kslplus/storybook
     container_name: storybook
     volumes:
-      - ./:/app
+      - ./:/usr/src/app
     ports:
       - 6006:6006
     command: npm run storybook
